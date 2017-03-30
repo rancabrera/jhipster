@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="Ran.Cabrera (generated)" id="1490856376015-1">
+      <createTable tableName="employee">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="employeePK"/>
+         </column>
+         <column name="first_name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="start_date" type="BYTEA">
+            <constraints nullable="false"/>
+         </column>
+         <column name="surname" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="department_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490856376015-2">
+      <addForeignKeyConstraint baseColumnNames="department_id"
+                               baseTableName="employee"
+                               constraintName="FKbejtwvg9bxus2mffsm3swj3u9"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="department"/>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490856376015-3">
+      <dropUniqueConstraint constraintName="jhi_social_user_connection_user_id_provider_id_provider_use_key"
+                            tableName="jhi_social_user_connection"/>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490856376015-4">
+      <dropUniqueConstraint constraintName="jhi_social_user_connection_user_id_provider_id_rank_key"
+                            tableName="jhi_social_user_connection"/>
+   </changeSet>
+</databaseChangeLog>

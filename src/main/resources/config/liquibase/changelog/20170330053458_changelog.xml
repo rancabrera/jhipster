@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="Ran.Cabrera (generated)" id="1490852104307-1">
+      <addColumn tableName="employee">
+         <column name="first_name" type="varchar(255)">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490852104307-2">
+      <addColumn tableName="employee">
+         <column name="start_date" type="bytea">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490852104307-3">
+      <dropUniqueConstraint constraintName="jhi_social_user_connection_user_id_provider_id_provider_use_key"
+                            tableName="jhi_social_user_connection"/>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490852104307-4">
+      <dropUniqueConstraint constraintName="jhi_social_user_connection_user_id_provider_id_rank_key"
+                            tableName="jhi_social_user_connection"/>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490852104307-5">
+      <dropColumn columnName="firstname" tableName="employee"/>
+   </changeSet>
+</databaseChangeLog>

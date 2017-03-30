@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="Ran.Cabrera (generated)" id="1490841648849-1">
+      <addColumn tableName="employee">
+         <column name="department_id" type="int8"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490841648849-2">
+      <addColumn tableName="team">
+         <column name="number_of_members" type="int4"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490841648849-3">
+      <addForeignKeyConstraint baseColumnNames="department_id"
+                               baseTableName="employee"
+                               constraintName="FKbejtwvg9bxus2mffsm3swj3u9"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="department"/>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490841648849-4">
+      <dropForeignKeyConstraint baseTableName="team" constraintName="fk_team_team_id"/>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490841648849-5">
+      <dropUniqueConstraint constraintName="jhi_social_user_connection_user_id_provider_id_provider_use_key"
+                            tableName="jhi_social_user_connection"/>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490841648849-6">
+      <dropUniqueConstraint constraintName="jhi_social_user_connection_user_id_provider_id_rank_key"
+                            tableName="jhi_social_user_connection"/>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490841648849-7">
+      <dropColumn columnName="numberofmembers" tableName="team"/>
+   </changeSet>
+   <changeSet author="Ran.Cabrera (generated)" id="1490841648849-8">
+      <dropColumn columnName="team_id" tableName="team"/>
+   </changeSet>
+</databaseChangeLog>
